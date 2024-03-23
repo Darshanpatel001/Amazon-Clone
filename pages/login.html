@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="../style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+</head>
+<style>
+     /* =====l0gin============ */
+  .form {
+    width: 350px;
+    height: 551px;
+    background: #1e1e1e;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .form h1 {
+    width: 220px;
+    text-align: center;
+    color: #ff7200;
+    font-size: 22px;
+    background-color:transparent;
+    border-radius: 10px;
+    margin: 2px;
+    padding: 8px;
+    /* margin-left: 30px; */
+    margin: 0 auto;
+
+  }
+.imgg{
+    height: 50%;
+    width: 50%;
+}
+  .form input {
+    width: 240px;
+    height: 35px;
+    background: transparent;
+    border-bottom: 1px solid yellow;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+  }
+
+  .form input:focus {
+    outline: none;
+  }
+
+  ::placeholder {
+    color: #fff;
+  }
+
+  .btn {
+    width: 240px;
+    height: 40px;
+    background: #ff7200;
+    border: none;
+    margin-top: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+
+  }
+
+  .btn:hover {
+    background-color: #fff;
+    color: #ff7200;
+
+  }
+
+  .btn a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .form .link {
+    font-size: 17px;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .form .link a {
+    text-decoration: none;
+    color: #ff7300;
+  }
+
+  .liw {
+    padding-bottom: 10px;
+    padding-top: 15px;
+    text-align: center;
+  }
+
+  .form p {
+    color: #fff;
+  }
+
+  .icons a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .icons i {
+    color: #fff;
+    font-size: 30px;
+    padding-left: 14px;
+    padding-top: 5px;
+    transition: 0.3s ease;
+
+  }
+
+  .icons i:hover {
+    color: #ff7200;
+  }
+</style>
+<body>
+     <!-- ===========header================= -->
+     <header>
+        <div class="first">
+            <div class="flex logo">
+            <a href="#"><img src="../images/logo.png" alt=""></a>
+            <div class="map flex">
+                <i class="fas fa-map-marker"></i>
+                <div>
+                    <span>Deliver to</span>
+                    <span>India</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex input">
+            <div>
+                <span>All</span>
+                <i class="fas fa-caret-down"></i>
+            </div>
+            <input type="text">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="flex right">
+            <div class="flex lang">
+                <img src="../images/usflag.jpg" alt="">
+                <i class="fas fa-caret-down"></i>
+            </div>
+            <div class="sign">
+                <span>Hello, Sign in</span>
+                <div class="flex ac">
+                    <span>Accounts & Lists</span>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+            </div>
+            <div class="sign">
+                <span>Returns</span>
+                <span>& Orders</span>
+            </div>
+            <div class="flex cart">
+                <label id="count" style="color: white;"></label>
+                <a href="../pages/cart.html"></a>
+                <i class="fas fa-shopping-cart">  </i>
+                <span class="ca">Cart</span>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="form p-3" id="name">
+    <h1><img src="../images/logo.png" class="imgg" alt=""></h1>
+
+    <input type="text" id="role" placeholder="enter your role">
+
+    <input type="text" id="email" placeholder="enter your email">
+
+    <input type="number" id="password" placeholder="enter your password">
+
+    <button class="btn" onclick="Submit()"><a href="#">Continue</a></button>
+
+    <p id="title" style="font-size: 20px;" class="link">don't have an account<br>
+      <a href="#">sign up</a> hear</a>
+    </p>
+    <p  class="liw">login with</p>
+
+    <div class="icons">
+      <a href="#"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-google"></i></a>
+      <a href="#"><i class="fa-brands fa-skype"></i></a>
+    </div>
+  </div>
+  
+<!-- ===================footer=================== -->
+<section class="footer">
+    <div class="backtop">
+        <span>Back to Top</span>
+    </div>
+    <div class="detail">
+        <div class="table">
+            <div>
+                <div class="t-head">Get to Know Us</div>
+                <ul>
+                    <li>Careers</li>
+                    <li>Blogs</li>
+                    <li>About Amazon</li>
+                    <li>Investor Relations</li>
+                    <li>Amazon Advices</li>
+                    <li>Amazon Science</li>
+                </ul>
+            </div>
+        
+            <div>
+                <div class="t-head">Make Money with Us</div>
+                <ul>
+                    <li>Sell Products on Amazon</li>
+                    <li>Sell on Amazon Business</li>
+                    <li>Sell Apps on Amazon</li>
+                    <li>Become an Affiliate</li>
+                    <li>Advertise your Products</li>
+                    <li>Host an Amazon Hub</li>
+                </ul>
+            </div>
+        
+       
+            <div>
+                <div class="t-head">Amazon Payment Products</div>
+                <ul>
+                    <li>Amazon Business Cards</li>
+                    <li>Shop with Points</li>
+                    <li>Reload your Balance</li>
+                    <li>Amazon Currency Converter</li>
+                </ul>
+            </div>
+        
+        
+            <div>
+                <div class="t-head">Let Us Help You</div>
+                <ul>
+                    <li>Amazon and COVID-19</li>
+                    <li>Your Account</li>
+                    <li>Yoyr Orders</li>
+                    <li>Shipping Rates and Policies</li>
+                    <li>Returns and Replacements</li>
+                    <li>Manage your Content & Devices</li>
+                    <li>Amazon Assistant</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="copy">
+        <span>&copy; Designed by Swapnil Aichbhaumik</span>
+    </div>
+</section>
+<script>
+     let role = ["admin", "user"];
+    let Email = "darshanpatel@gmail.com";
+    let pass = "123";
+
+    const Submit = () => {
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+      let rolee = document.getElementById("role").value;
+      console.log(rolee);
+      if (role.includes(rolee)) {
+        if (Email === email && pass === password && rolee === "admin") {
+          console.log("login success");
+        location.href = "./admin.html";
+        } else if (Email === email && pass === password && rolee === "user") {
+          location.href = "./product.html";
+        } else {
+          document.getElementById("title").innerHTML = "The email are password you entered is incorrect !";
+          document.getElementById("title").style.color = "red";
+        }
+      } else {
+        document.getElementById("title").innerHTML = "the role & email & password enter your !";
+        document.getElementById("title").style.color = "red";
+      }
+    };
+</script>
+</body>
+</html>

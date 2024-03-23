@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin page</title>
+</head>
+<style>
+    .signup-card {
+        background-color: #ffffff;
+        border: 1px solid #ffffff;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 5px;
+        text-align: center;
+        width: 300px;
+        /* Adjust width as needed */
+    }
+
+    .signup-card img {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .signup-card h2 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .signup-card form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .signup-card label {
+        margin-bottom: 5px;
+        display: block;
+    }
+    
+    .signup-card input[type="url"],
+    .signup-card input[type="text"],
+    .signup-card input[type="number"],
+    .signup-card input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+
+
+
+    .signup-card p {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    .signup-card a {
+        text-decoration: none;
+        color: #0066c7;
+    }
+  
+    .modal{
+        padding: 20px 0px 20px 0px;
+        box-shadow: 0px 3px 15px gray;
+        width: 30%;
+        background-color: white;
+        position: fixed;
+        top: 0%;
+        left: 55%;
+        display: none;
+    }
+
+</style>
+<body>
+    <center>
+        <div class="signup-card" style="margin-top: 60px;">
+            <img src="../images/logo copy.png"  width="300" height="60" alt="Amazon logo">
+            <h2>Create your Amazon account</h2> 
+            <form>
+                <label >product Image:</label><br>
+                <input type="url" id="productimage" name="role" placeholder="enter product URL"><br>
+    
+                <label >productName:</label><br>
+                <input type="text" id="productName" name="role" placeholder="enter productName"><br>
+    
+                <label >price:</label><br>
+                <input type="number" id="price" name="email" placeholder="enter price"><br>
+    
+                <label >desc:</label><br>
+                <input type="text" id="desc" name="password" placeholder="enter description"><br>
+    
+                <button class="btn ms-5 "  onclick="addProduct()" style="background-color: transparent;cursor: pointer;">add product</button><br>
+                <button class="btn ms-5 "  onclick="seeProduct()" style="background-color: transparent;cursor: pointer;">see youre product</button>
+            </form>
+            <p>Already have an account? <a href="#">Sign in</a></p>
+            <p >By continuing, you agree to Amazon's Conditions of Use and Privacy Policy.</p>
+        </div>
+       </center>
+       <br><br>
+       <center>
+        <table border="1" cellpadding="10" cellspacing="1">
+            <thead>
+                <tr>
+                    <th>product image</th>
+                    <th>Products Name</th>
+                    <th>price</th>
+                    <th>Description</th> 
+                    <th>delete</th>
+                    <th>view</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+    
+            </tbody>
+        </table>
+        <br><br>
+        <div class="modal" id="mymodal">
+            <div class="signup-card" style="margin-top: 40px;">
+                <img src="../images/logo copy.png" width="300" height="60" alt="Amazon logo">
+                <h2>Create your Amazon account</h2>
+    
+                <form>
+                    <label>product Image:</label><br>
+                    <input type="url" name="image" id="imagee" placeholder="enter product URL"><br>
+    
+                    <label>productName:</label><br>
+                    <input type="text" name="name" id="namee" placeholder="enter productName"><br>
+    
+                    <label>price:</label><br>
+                    <input type="number" name="price" id="pricee" placeholder="enter price"><br>
+    
+                    <label>desc:</label><br>
+                    <input type="text" name="desc" id="descc" placeholder="enter description"><br>
+                   <div>
+                    <button style="margin-right: 20px;padding: 6px 20px 5px 20px;background: red;color:#ffffff;border: none;cursor: pointer;" onclick="closedata()" id="close">close</button>
+                    <button style="padding: 6px 20px 5px 20px;background: blue;color:#ffffff;border: none;cursor: pointer;" onclick="save()">save change</button>
+                   </div>
+                </form>
+            </div>
+            </div>
+       </center>
+</body>
+<script>
+ let product = JSON.parse(localStorage.getItem("product")) || [];
+        let addProduct = () => {
+            let products = {
+                Image: document.getElementById("productimage").value,
+                name: document.getElementById("productName").value,
+                price: document.getElementById("price").value,
+                des: document.getElementById("desc").value,
+                
+            }
+            product.push(products);
+
+            localStorage.setItem("product", JSON.stringify(product));
+            location.reload()
+        }
+
+        function seeProduct (){
+            location.href="./pages/product.html"
+        }
+        
+        let loaddata = () => {
+            let tbody = document.getElementById("tbody");
+            product.map((val, ind) => {
+                let tr = document.createElement("tr");
+                tr.innerHTML = `<td>${val.Image}</td>
+                                 <td>${val.name}</td>
+                                 <td>${val.price}</td>
+                                <td>${val.des}</td> 
+                                <td><button style="cursor: pointer" onclick="delet(${ind})">delete</button></td>
+                                <td><button style="cursor: pointer" onclick="view(${ind})">view</button></td>`
+                tbody.appendChild(tr)
+            })
+        }
+        loaddata()
+        let delet = (ind) => {
+            let products = product[ind]
+            let res = product.filter((val) => val.name != products.name)
+            console.log(res);
+            localStorage.setItem("product", JSON.stringify(res));
+            location.reload();
+        }
+        let view = (ind) => {
+            let modal=document.getElementById("mymodal")
+            modal.style.display="block"
+
+            let products=product[ind]
+            document.getElementById("imagee").value=products.Image;
+            document.getElementById("namee").value=products.name;
+            document.getElementById("pricee").value=products.price;
+            document.getElementById("descc").value=products.des;
+          
+            document.getElementById("index").value=ind;
+        }
+        let save=()=>{
+            let index=document.getElementById("index").value;
+            let products={
+                Image:document.getElementById("imagee").value,
+                name:document.getElementById("namee").value,
+                price: document.getElementById("pricee").value,
+                des:document.getElementById("descc").value,
+               
+            }
+            console.log(products);
+
+            product.splice(index,1,products)
+            localStorage.setItem("product",JSON.stringify(product))
+            location.reload()
+        }
+        let closedata=()=>{
+            let modal=document.getElementById("mymodal")
+            modal.style.display="none"
+        }
+</script>
+</html>
